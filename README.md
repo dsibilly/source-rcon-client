@@ -1,0 +1,104 @@
+# source-rcon-client
+A simple RCON client written in ES2018 with the [isotropic](https://github.com/ibigroup/isotropic) utilities library.
+
+## API
+
+#### new SourceRCONClient(hostname, port = 27015, password, timeout = 5000)
+
+Returns a fresh client instance for the given server and credentials.
+
+__Arguments__
+
+* `hostname` - The hostname or IP of the RCON server.
+* `port` - The TCP port of the RCON server. Defaults to port 27015.
+* `password` - The admin password for the RCON server.
+* `timeout` - The timeout for command responses. Defaults to 5000 ms (5 seconds.)
+
+__Example__
+
+```javascript
+import SourceRCONClient from 'source-rcon-client';
+
+const client = new SourceRCONClient('hostname', 27015, 'password');
+```
+
+---------------------------------------
+
+#### connect()
+
+Connects with the credentials provided at instantiation time.
+Returns a Promise that is resolved if the connection is successful and
+rejects if it fails.
+
+__Example__
+
+```javascript
+import SourceRCONClient from 'source-rcon-client';
+
+const client = new SourceRCONClient('hostname', 27015, 'password');
+
+client.connect().then(() => {
+    console.log('Connected!');
+}).catch(error => {
+    console.error(error);
+});
+```
+
+---------------------------------------
+
+### disconnect()
+
+Disconnects from the RCON server and resets the client, making it ready
+for a new connection.
+Returns a Promise that is resolved if the client disconnects cleanly or
+rejects if it does not.
+
+__Example__
+
+```javascript
+import SourceRCONClient from 'source-rcon-client';
+
+const client = new SourceRCONClient('hostname', 27015, 'password');
+
+client.connect().then(() => {
+    console.log('Connected!');
+    return client.disconnect();
+}).then(() => {
+    console.log('Disconnected!');
+}).catch(error => {
+    console.error(error);
+});
+```
+
+---------------------------------------
+
+### send(command[, packetType])
+
+Sends the provided command to the connected server for execution.
+Returns a Promise that resolves with the server response on successful
+execution, or rejects with an error if there is a failure.
+
+__Arguments__
+
+* `command` - The command sent to the server.
+* `packetType` - An optional PacketType definition. Defaults to `PacketType.SERVERDATA_EXECCOMMAND`.
+
+__Example__
+
+```javascript
+import SourceRCONClient from 'source-rcon-client';
+
+const client = new SourceRCONClient('hostname', 27015, 'password');
+
+client.connect().then(() => {
+    console.log('Connected!');
+    return client.send('listplayers'); // Assuming an ARK/ATLAS server...
+}).then(response => {
+    console.log(response); // Print the server response to console
+    return client.disconnect();
+}).then(() => {
+    console.log('Disconnected!');
+}).catch(error => {
+    console.error(error);
+});
+```
