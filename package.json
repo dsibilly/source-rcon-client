@@ -1,0 +1,109 @@
+{
+    "author": "Duane Sibilly <duane@sibilly.com>",
+    "babel": {
+        "env": {
+            "test": {
+                "plugins": [
+                    "istanbul"
+                ]
+            }
+        },
+        "plugins": [
+            "transform-line"
+        ],
+        "presets": [
+            "@babel/preset-env"
+        ]
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.1.5",
+        "bunyan": "^2.0.2",
+        "isotropic-error": "^0.7.0",
+        "isotropic-later": "^0.7.0",
+        "isotropic-make": "^0.7.0"
+    },
+    "description": "An ES2017 implementation of an RCON client",
+    "devDependencies": {
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.6",
+        "@babel/node": "^7.0.0",
+        "@babel/preset-env": "^7.1.6",
+        "@babel/register": "^7.0.0",
+        "babel-plugin-istanbul": "^5.1.0",
+        "babel-plugin-transform-line": "~0.5.0",
+        "chai": "^4.2.0",
+        "coveralls": "~3.0.2",
+        "cross-env": "~5.2.0",
+        "eslint": "~5.9.0",
+        "eslint-plugin-isotropic": "~0.2.0",
+        "mocha": "~5.2.0",
+        "nyc": "~13.1.0",
+        "pre-commit": "~1.2.2",
+        "sinon": "~7.1.1"
+    },
+    "eslintConfig": {
+        "env": {
+            "es6": true,
+            "mocha": true,
+            "node": true
+        },
+        "extends": "plugin:isotropic/isotropic",
+        "parserOptions": {
+            "ecmaFeatures": {
+                "globalReturn": false,
+                "impliedStrict": true,
+                "jsx": false
+            },
+            "ecmaVersion": 2018,
+            "sourceType": "module"
+        },
+        "plugins": [
+            "isotropic"
+        ],
+        "root": true,
+        "rules": {
+            "sort-imports": 0
+        }
+    },
+    "keywords": [
+        "es2017",
+        "rcon"
+    ],
+    "license": "MIT",
+    "main": "lib/SourceRCONClient.js",
+    "name": "source-rcon-client",
+    "nyc": {
+        "all": true,
+        "cache": true,
+        "check-coverage": true,
+        "include": [
+            "js/*.js",
+            "js/*/*.js"
+        ],
+        "lines": 50,
+        "exclude": [
+            "lib/*"
+        ],
+        "instrument": false,
+        "reporter": [
+            "lcov",
+            "text-summary"
+        ],
+        "require": [
+            "@babel/register"
+        ],
+        "sourceMap": false
+    },
+    "scripts": {
+        "build": "BABEL_ENV=build babel js -d lib",
+        "coverage": "nyc check-coverage",
+        "lint": "node_modules/.bin/eslint js test",
+        "posttest": "[ -z \"$npm_config_coverage\" ] || nyc check-coverage",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm audit && nyc check-coverage",
+        "pretest": "npm run lint",
+        "rebuild": "rm -rf ./node_modules && rm package-lock.json && npm install",
+        "test": "cross-env BABEL_ENV=test nyc mocha"
+    },
+    "version": "0.0.0"
+}
