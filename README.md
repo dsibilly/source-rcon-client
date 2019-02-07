@@ -1,4 +1,4 @@
-# source-rcon-client
+# source-rcon-client [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/dsibilly/source-rcon-client/blob/master/CODE_OF_CONDUCT.md) ![semver](https://img.shields.io/badge/semver-2.0.0-blue.svg?maxAge=2592000)
 A simple RCON client written in ES2018 with the [isotropic](https://github.com/ibigroup/isotropic) utilities library.
 
 ## API
