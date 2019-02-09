@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.1.5",
-        "bunyan": "^2.0.2",
+        "bunyan": "^1.8.12",
         "isotropic-error": "^0.7.0",
         "isotropic-later": "^0.7.0",
         "isotropic-make": "^0.7.0"
