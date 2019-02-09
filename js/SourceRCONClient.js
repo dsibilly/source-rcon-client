@@ -176,11 +176,13 @@ const SourceRCONClient = _make({
             this._callbacks.get(id)(dataString);
         } else if (id === 0 && type === PacketType.SERVERDATA_RESPONSE_VALUE) {
             /* TODO: Ignore keep-alive packets! */
+            /*
             console.log({
                 id,
                 length,
                 payload: data.toString('ascii', 12, length + 2)
             });
+            */
         } else {
             throw new _Error({
                 details: {
