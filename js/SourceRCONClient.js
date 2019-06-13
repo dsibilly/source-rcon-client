@@ -1,7 +1,7 @@
 import _Error from 'isotropic-error';
 import _later from 'isotropic-later';
 import _make from 'isotropic-make';
-import MersenneTwister from './MersenneTwister';
+import MersenneTwister from '@dsibilly/mersenne-twister';
 import net from 'net';
 import PacketType from './PacketType';
 
