@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.4.5",
+        "@dsibilly/mersenne-twister": "~1.0.1",
         "bunyan": "^2.0.2",
         "isotropic-error": "^0.10.0",
         "isotropic-later": "^0.10.0",
