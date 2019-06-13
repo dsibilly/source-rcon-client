@@ -15,29 +15,33 @@
             "@babel/preset-env"
         ]
     },
+    "bugs": {
+        "url": "https://github.com/dsibilly/source-rcon-client/issues"
+    },
     "dependencies": {
-        "@babel/runtime": "^7.1.5",
-        "bunyan": "^1.8.12",
-        "isotropic-error": "^0.7.0",
-        "isotropic-later": "^0.7.0",
-        "isotropic-make": "^0.7.0"
+        "@babel/runtime": "^7.4.5",
+        "bunyan": "^2.0.2",
+        "isotropic-error": "^0.10.0",
+        "isotropic-later": "^0.10.0",
+        "isotropic-make": "^0.10.0"
     },
     "description": "An ES2017 implementation of an RCON client",
     "devDependencies": {
-        "@babel/cli": "^7.1.5",
-        "@babel/core": "^7.1.6",
-        "@babel/node": "^7.0.0",
-        "@babel/preset-env": "^7.1.6",
-        "@babel/register": "^7.0.0",
-        "babel-plugin-istanbul": "^5.1.0",
-        "babel-plugin-transform-line": "~0.5.0",
+        "@babel/cli": "~7.4.4",
+        "@babel/core": "~7.4.5",
+        "@babel/node": "~7.4.5",
+        "@babel/plugin-transform-runtime": "~7.4.4",
+        "@babel/preset-env": "~7.4.5",
+        "@babel/register": "~7.4.4",
+        "babel-plugin-istanbul": "~5.1.4",
+        "babel-plugin-transform-line": "~0.8.0",
         "chai": "^4.2.0",
-        "coveralls": "~3.0.2",
+        "coveralls": "~3.0.4",
         "cross-env": "~5.2.0",
-        "eslint": "~5.9.0",
-        "eslint-plugin-isotropic": "~0.2.0",
-        "mocha": "~5.2.0",
-        "nyc": "~13.1.0",
+        "eslint": "~5.16.0",
+        "eslint-plugin-isotropic": "~0.4.0",
+        "mocha": "~6.1.4",
+        "nyc": "~14.1.1",
         "pre-commit": "~1.2.2",
         "sinon": "~7.1.1"
     },
@@ -66,7 +70,7 @@
         }
     },
     "keywords": [
-        "es2017",
+        "es2018",
         "rcon"
     ],
     "license": "MIT",
@@ -93,6 +97,10 @@
             "@babel/register"
         ],
         "sourceMap": false
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dsibilly/source-rcon-client.git"
     },
     "scripts": {
         "build": "BABEL_ENV=build babel js -d lib",
