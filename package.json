@@ -19,12 +19,12 @@
         "url": "https://github.com/dsibilly/source-rcon-client/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.4.5",
+        "@babel/runtime": "~7.4.5",
         "@dsibilly/mersenne-twister": "~1.0.1",
-        "bunyan": "^2.0.2",
-        "isotropic-error": "^0.10.0",
-        "isotropic-later": "^0.10.0",
-        "isotropic-make": "^0.10.0"
+        "bunyan": "~2.0.2",
+        "isotropic-error": "~0.10.0",
+        "isotropic-later": "~0.10.0",
+        "isotropic-make": "~0.10.0"
     },
     "description": "An ES2017 implementation of an RCON client",
     "devDependencies": {
@@ -36,7 +36,7 @@
         "@babel/register": "~7.4.4",
         "babel-plugin-istanbul": "~5.1.4",
         "babel-plugin-transform-line": "~0.8.0",
-        "chai": "^4.2.0",
+        "chai": "~4.2.0",
         "coveralls": "~3.0.4",
         "cross-env": "~5.2.0",
         "eslint": "~5.16.0",
@@ -85,7 +85,7 @@
             "js/*.js",
             "js/*/*.js"
         ],
-        "lines": 50,
+        "lines": 0,
         "exclude": [
             "lib/*"
         ],
