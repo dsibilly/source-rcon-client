@@ -22,6 +22,13 @@ import SourceRCONClient from 'source-rcon-client';
 const client = new SourceRCONClient('hostname', 27015, 'password');
 ```
 
+**NOTE:** source-rcon-client is a ES2015+ module. If you're using CommonJS on Node.js < 12 or are not using Babel to transpile, you're going to want to `require` source-rcon-client by the `default` property:
+
+```javascript
+const SourceRCONClient = require('source-rcon-client').default,
+    client = new SourceRCONClient('hostname', 27015, 'password');
+```
+
 ---------------------------------------
 
 #### connect()

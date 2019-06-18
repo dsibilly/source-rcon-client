@@ -114,5 +114,5 @@
         "rebuild": "rm -rf ./node_modules && rm package-lock.json && npm install",
         "test": "cross-env BABEL_ENV=test nyc mocha"
     },
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
