@@ -114,8 +114,8 @@
         "prepare": "npm run build",
         "prepublishOnly": "npm audit && nyc check-coverage",
         "pretest": "npm run lint",
-        "rebuild": "rm -rf ./node_modules && rm package-lock.json && npm install",
+        "rebuild": "rm -rf ./node_modules && rm package-lock.json && rm -rf ./lib && npm install",
         "test": "cross-env BABEL_ENV=test nyc mocha"
     },
-    "version": "0.0.6"
+    "version": "0.0.7"
 }
