@@ -19,8 +19,8 @@
         "url": "https://github.com/dsibilly/source-rcon-client/issues"
     },
     "dependencies": {
-        "@babel/runtime": "~7.4.5",
-        "@dsibilly/mersenne-twister": "~1.0.1",
+        "@babel/runtime": "~7.5.4",
+        "@dsibilly/mersenne-twister": "~1.0.3",
         "bunyan": "~2.0.2",
         "isotropic-error": "~0.10.0",
         "isotropic-later": "~0.10.0",
@@ -28,19 +28,20 @@
     },
     "description": "An ES2017 implementation of an RCON client",
     "devDependencies": {
-        "@babel/cli": "~7.4.4",
-        "@babel/core": "~7.4.5",
-        "@babel/node": "~7.4.5",
-        "@babel/plugin-transform-runtime": "~7.4.4",
-        "@babel/preset-env": "~7.4.5",
+        "@babel/cli": "~7.5.0",
+        "@babel/core": "~7.5.4",
+        "@babel/node": "~7.5.0",
+        "@babel/plugin-transform-runtime": "~7.5.0",
+        "@babel/preset-env": "~7.5.4",
         "@babel/register": "~7.4.4",
         "babel-plugin-istanbul": "~5.1.4",
         "babel-plugin-transform-line": "~0.8.0",
         "chai": "~4.2.0",
-        "coveralls": "~3.0.4",
+        "coveralls": "~3.0.5",
         "cross-env": "~5.2.0",
-        "eslint": "~5.16.0",
+        "eslint": "~6.0.1",
         "eslint-plugin-isotropic": "~0.4.0",
+        "lodash": ">=4.17.13",
         "mocha": "~6.1.4",
         "nyc": "~14.1.1",
         "pre-commit": "~1.2.2",
@@ -67,9 +68,11 @@
         ],
         "root": true,
         "rules": {
+            "isotropic/sort-vars": 0,
             "sort-imports": 0
         }
     },
+    "homepage": "https://github.com/dsibilly/source-rcon-client/",
     "keywords": [
         "es2018",
         "rcon"
@@ -114,5 +117,5 @@
         "rebuild": "rm -rf ./node_modules && rm package-lock.json && npm install",
         "test": "cross-env BABEL_ENV=test nyc mocha"
     },
-    "version": "0.0.5"
+    "version": "0.0.6"
 }
