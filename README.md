@@ -3,7 +3,7 @@ A simple RCON client written in ES2018 with the [isotropic](https://github.com/i
 
 ## API
 
-#### new SourceRCONClient(hostname, port = 27015, password, timeout = 5000)
+#### new SourceRCONClient(hostname, port = 27015, password, timeout = 5000, logEnabled = false)
 
 Returns a fresh client instance for the given server and credentials.
 
