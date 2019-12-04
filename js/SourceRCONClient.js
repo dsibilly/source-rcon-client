@@ -4,6 +4,7 @@ import _make from 'isotropic-make';
 import MersenneTwister from '@dsibilly/mersenne-twister';
 import net from 'net';
 import PacketType from './PacketType';
+import pino from 'pino';
 
 const SourceRCONClient = _make({
     connect () {
@@ -19,8 +20,10 @@ const SourceRCONClient = _make({
 
             this._tcpSocket.on('connect', () => {
                 this.isReady = true;
+                this._log.info(`Connected to ${this.host}:${this.port}`);
                 this.send(this.password, PacketType.SERVERDATA_AUTH).then(() => {
                     this.hasAuthed = true;
+                    this._log.info('Authentication successful');
                     resolve();
                 }).catch(error => {
                     reject(new _Error({
@@ -69,6 +72,7 @@ const SourceRCONClient = _make({
             this._tcpSocket.unref();
             this._tcpSocket.end(null, () => {
                 this._reset();
+                this._log.info('Disconnect successful');
                 resolve();
             });
         });
@@ -109,6 +113,7 @@ const SourceRCONClient = _make({
             buffer.write(command, 12);
             buffer.fill(0x00, length + 12);
 
+            this._log.info(`Sending command '${command}'`);
             this._tcpSocket.write(buffer.toString('binary'), 'binary');
 
             requestTimeout = _later(this.timeout, () => {
@@ -139,6 +144,10 @@ const SourceRCONClient = _make({
                     return;
                 }
 
+                this._log.info({
+                    commandId: id,
+                    data
+                });
                 resolve(data);
             });
         });
@@ -175,27 +184,21 @@ const SourceRCONClient = _make({
 
             this._callbacks.get(id)(dataString);
         } else if (id === 0 && type === PacketType.SERVERDATA_RESPONSE_VALUE) {
-            /* TODO: Ignore keep-alive packets! */
-            /*
-            console.log({
+            this._log.info({
                 id,
                 length,
                 payload: data.toString('ascii', 12, length + 2)
-            });
-            */
+            }, 'Suspected keep-alive packet');
         } else {
-            throw new _Error({
-                details: {
-                    id,
-                    length,
-                    type
-                },
-                message: `response id ${id} did not match any known request id`
-            });
+            this._log.warn({
+                id,
+                length,
+                type
+            }, `Response id ${id} did not match any known request id`);
         }
     },
 
-    _init (host, port, password, timeout) {
+    _init (host, port, password, timeout, logEnabled = false) {
         if (!host || !host.trim()) {
             throw new _Error({
                 message: 'host argument must not be empty'
@@ -228,6 +231,11 @@ const SourceRCONClient = _make({
         this.timeout = timeout || 5000;
         this._authPacketId = null;
         this._callbacks = new Map();
+        this._log = pino({
+            enabled: logEnabled,
+            name: 'source-rcon-client',
+            prettyPrint: true
+        });
         this._rng = new MersenneTwister();
         this._tcpSocket = null;
         this._timedOutRequests = [];
