@@ -13,6 +13,7 @@ __Arguments__
 * `port` - The TCP port of the RCON server. Defaults to port 27015.
 * `password` - The admin password for the RCON server.
 * `timeout` - The timeout for command responses. Defaults to 5000 ms (5 seconds.)
+* `logEnabled` - Whether logging (via [pino](https://github.com/pinojs/pino)) is enabled. Defaults to false.
 
 __Example__
 

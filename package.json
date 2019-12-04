@@ -19,33 +19,34 @@
         "url": "https://github.com/dsibilly/source-rcon-client/issues"
     },
     "dependencies": {
-        "@babel/runtime": "~7.5.4",
+        "@babel/runtime": "~7.7.4",
         "@dsibilly/mersenne-twister": "~1.0.3",
-        "bunyan": "~2.0.2",
         "isotropic-error": "~0.10.0",
         "isotropic-later": "~0.10.0",
-        "isotropic-make": "~0.10.0"
+        "isotropic-make": "~0.10.0",
+        "pino": "~5.14.0",
+        "pino-pretty": "^3.5.0"
     },
     "description": "An ES2017 implementation of an RCON client",
     "devDependencies": {
-        "@babel/cli": "~7.5.0",
-        "@babel/core": "~7.5.4",
-        "@babel/node": "~7.5.0",
-        "@babel/plugin-transform-runtime": "~7.5.0",
-        "@babel/preset-env": "~7.5.4",
-        "@babel/register": "~7.4.4",
-        "babel-plugin-istanbul": "~5.1.4",
+        "@babel/cli": "~7.7.4",
+        "@babel/core": "~7.7.4",
+        "@babel/node": "~7.7.4",
+        "@babel/plugin-transform-runtime": "~7.7.4",
+        "@babel/preset-env": "~7.7.4",
+        "@babel/register": "~7.7.4",
+        "babel-plugin-istanbul": "~5.2.0",
         "babel-plugin-transform-line": "~0.8.0",
         "chai": "~4.2.0",
-        "coveralls": "~3.0.5",
-        "cross-env": "~5.2.0",
-        "eslint": "~6.0.1",
+        "coveralls": "~3.0.9",
+        "cross-env": "~6.0.3",
+        "eslint": "~6.7.2",
         "eslint-plugin-isotropic": "~0.4.0",
-        "lodash": ">=4.17.13",
-        "mocha": "~6.1.4",
+        "lodash": ">=4.17.15",
+        "mocha": "~6.2.2",
         "nyc": "~14.1.1",
         "pre-commit": "~1.2.2",
-        "sinon": "~7.1.1"
+        "sinon": "~7.5.0"
     },
     "eslintConfig": {
         "env": {
@@ -117,5 +118,5 @@
         "rebuild": "rm -rf ./node_modules && rm package-lock.json && rm -rf ./lib && npm install",
         "test": "cross-env BABEL_ENV=test nyc mocha"
     },
-    "version": "0.0.8"
+    "version": "0.0.9"
 }
