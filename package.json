@@ -43,7 +43,7 @@
         "eslint": "~6.7.2",
         "eslint-plugin-isotropic": "~0.4.0",
         "lodash": ">=4.17.15",
-        "mocha": "~6.2.2",
+        "mocha": "~10.2.0",
         "nyc": "~14.1.1",
         "pre-commit": "~1.2.2",
         "sinon": "~7.5.0"
